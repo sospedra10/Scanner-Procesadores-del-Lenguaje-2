@@ -1,0 +1,13 @@
+completo:	scanner.l parser.y
+		bison -d parser.y
+		flex scanner.l
+	  	gcc lex.yy.c -lfl
+		gcc -c tablassimbolos.c
+		gcc -c tablacuadruplas.c
+
+gcc: 	lex.yy.c
+	gcc lex.yy.c -lfl
+
+clean: 	lex.yy.c a.out
+	rm lex.yy.c
+	rm a.out
